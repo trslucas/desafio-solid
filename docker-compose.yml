@@ -1,11 +1,11 @@
-version: '3'
+version: "3"
 
-services: 
-  desafio-solid-pg: 
+services:
+  desafio-solid-pg:
     image: bitnami/postgresql
-    ports: 
+    ports:
       - 5432:5432
-    environment: 
-      - POSTGRESQL_USERNAME=docker
-      - POSTGRESQL_PASSWORD=docker
+    environment:
+      - POSTGRESQL_USERNAME=postgres
+      - POSTGRESQL_PASSWORD=123456
       - POSTGRESQL_DATABASE=desafiosolid
