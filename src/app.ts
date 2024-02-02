@@ -1,9 +1,8 @@
-import { ZodError } from "zod"
-import { env } from "./env"
-import fastify from "fastify"
+import { ZodError } from 'zod'
+import { env } from './env'
+import fastify from 'fastify'
 
 export const app = fastify()
-
 
 app.setErrorHandler((error, _request, reply) => {
   if (error instanceof ZodError) {
