@@ -27,4 +27,6 @@ model Dog {
   energy       String
   independence String
   environment  String
+
+  @@map("dogs")
 }
