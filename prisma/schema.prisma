@@ -16,6 +16,7 @@ model Org {
   email            String @unique
   password_hash    String
   cep              String
+  address          String
   whatsapp         String
 
   created_at DateTime
