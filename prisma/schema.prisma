@@ -10,16 +10,22 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+model Org {
+  id               String @id @default(uuid())
+  responsable_name String
+  email            String @unique
+  password_hash    String
+  cep              String
+  whatsapp         String
 
-  @@map("users")
+  created_at DateTime
+  dogs       Dog[]
+
+  @@map("orgs")
 }
 
 model Dog {
-  id           Int    @id @default(autoincrement())
+  id           String @id @default(uuid())
   name         String
   description  String
   age          String
@@ -27,6 +33,8 @@ model Dog {
   energy       String
   independence String
   environment  String
+  org          Org    @relation(fields: [org_id], references: [id])
+  org_id       String
 
   @@map("dogs")
 }
