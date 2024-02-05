@@ -20,4 +20,20 @@ export class InMemoryOrgsRepository implements OrgsRepository {
 
     return org
   }
+
+  async findByEmail(email: string): Promise<Org | null> {
+    const orgAlreadyExists = this.orgs.find((org) => org.email === email)
+
+    if (!orgAlreadyExists) return null
+
+    return orgAlreadyExists
+  }
+
+  async findById(orgId: string): Promise<Org | null> {
+    const org = this.orgs.find((org) => org.id === orgId)
+
+    if (!org) return null
+
+    return org
+  }
 }
