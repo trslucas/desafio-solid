@@ -35,6 +35,7 @@ model Pet {
   energy_level       Int
   independence_level Int
   environment        Int
+  requisits          String[]
   org                Org      @relation(fields: [org_id], references: [id])
   org_id             String
   created_at         DateTime

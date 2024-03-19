@@ -13,11 +13,12 @@ interface RegisterPetUseCaseRequest {
   energyLevel: number
   independencyLevel: number
   environment: number
+  requisits: string[]
   orgId: string
 }
 
 interface RegisterPetUseCaseResponse {
-  dog: Pet
+  pet: Pet
 }
 
 export class RegisterPetUseCase {
@@ -34,6 +35,7 @@ export class RegisterPetUseCase {
     size,
     energyLevel,
     independencyLevel,
+    requisits,
     environment,
     orgId,
   }: RegisterPetUseCaseRequest): Promise<RegisterPetUseCaseResponse> {
@@ -43,7 +45,7 @@ export class RegisterPetUseCase {
       throw new ResourceNotFoundError()
     }
 
-    const dog = await this.petsRepository.create({
+    const pet = await this.petsRepository.create({
       name,
       city,
       description,
@@ -53,8 +55,9 @@ export class RegisterPetUseCase {
       independence_level: independencyLevel,
       environment,
       org_id: org.id,
+      requisits,
       created_at: new Date(),
     })
-    return { dog }
+    return { pet }
   }
 }
