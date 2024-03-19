@@ -3,19 +3,19 @@ import { beforeEach, describe, expect, it } from 'vitest'
 import { ListPetsByCharacteristicsUseCase } from './list-pets-by-characteristics'
 import { InMemoryPetsRepository } from '../repository/in-memory/in-memory-pets-repository'
 
-let dogsRepository: InMemoryPetsRepository
+let petsRepository: InMemoryPetsRepository
 
 let sut: ListPetsByCharacteristicsUseCase
 
 describe('List Pets By Characteristics Use Case', () => {
   beforeEach(async () => {
-    dogsRepository = new InMemoryDogsRepository()
+    petsRepository = new InMemoryPetsRepository()
 
-    sut = new ListPetsByCharacteristicsUseCase(dogsRepository)
+    sut = new ListPetsByCharacteristicsUseCase(petsRepository)
   })
 
   it('shoud be able to list pets by characteristics', async () => {
-    await dogsRepository.create({
+    await petsRepository.create({
       name: 'Mayara',
       age: 1,
       city: 'Rio de Janeiro',
@@ -28,7 +28,7 @@ describe('List Pets By Characteristics Use Case', () => {
       created_at: new Date(),
     })
 
-    await dogsRepository.create({
+    await petsRepository.create({
       name: 'Nina Colina',
       age: 1,
       city: 'Rio de Janeiro',

@@ -1,6 +1,6 @@
 import { Pet, Prisma } from '@prisma/client'
-import { DogsRepository } from '../dogs-repository'
 import { prisma } from '../../lib/prisma'
+import { PetsRepository } from '../pets-repository'
 
 export class PrismaPetsRepository implements PetsRepository {
   async create(data: Prisma.PetUncheckedCreateInput) {

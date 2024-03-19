@@ -1,5 +1,6 @@
 import { Pet } from '@prisma/client'
 import { PetsRepository } from '../repository/pets-repository'
+import { ResourceNotFoundError } from './errors/resource-not-found-error'
 
 interface ListPetsByCharacteristicsUseCaseRequest {
   city: string
@@ -14,7 +15,7 @@ interface ListPetsByCharacteristicsUseCaseResponse {
 }
 
 export class ListPetsByCharacteristicsUseCase {
-  constructor(private dogsRepository: DogsRepository) {}
+  constructor(private petsRepository: PetsRepository) {}
 
   async execute({
     city,
@@ -23,7 +24,7 @@ export class ListPetsByCharacteristicsUseCase {
     environment,
     size,
   }: ListPetsByCharacteristicsUseCaseRequest): Promise<ListPetsByCharacteristicsUseCaseResponse> {
-    const pets = await this.dogsRepository.searchByCharacteristics({
+    const pets = await this.petsRepository.searchByCharacteristics({
       city,
       age,
       energy_level,
@@ -32,7 +33,7 @@ export class ListPetsByCharacteristicsUseCase {
     })
 
     if (!pets) {
-      throw new Error('Pets not found')
+      throw new ResourceNotFoundError()
     }
 
     return {

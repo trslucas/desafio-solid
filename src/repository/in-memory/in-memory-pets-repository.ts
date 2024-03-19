@@ -56,7 +56,6 @@ export class InMemoryPetsRepository implements PetsRepository {
       )
     })
 
-    console.log(searchedPet)
     return searchedPet
   }
 }
