@@ -44,6 +44,7 @@ describe('List Pets Use Case', () => {
       city: 'Rio de Janeiro',
     })
 
+    console.log(pets)
     expect(pets).toHaveLength(2)
   })
 })

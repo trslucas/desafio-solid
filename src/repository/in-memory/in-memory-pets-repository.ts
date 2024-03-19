@@ -2,6 +2,7 @@ import { Pet, Prisma } from '@prisma/client'
 
 import { randomUUID } from 'crypto'
 import { PetsRepository } from '../pets-repository'
+import { ResourceNotFoundError } from '../../use-cases/errors/resource-not-found-error'
 
 export class InMemoryPetsRepository implements PetsRepository {
   public pets: Pet[] = []
@@ -17,11 +18,26 @@ export class InMemoryPetsRepository implements PetsRepository {
       energy_level: data.energy_level,
       independence_level: data.independence_level,
       environment: data.environment,
+      requisits: (data.requisits as string[]) ?? [],
       org_id: data.org_id,
       created_at: new Date(),
     }
 
     this.pets.push(pet)
+
+    return pet
+  }
+
+  async findById(petId: string) {
+    if (!petId) {
+      throw new ResourceNotFoundError()
+    }
+
+    const pet = this.pets.find((pet) => pet.id === petId)
+
+    if (!pet) {
+      return null
+    }
 
     return pet
   }
