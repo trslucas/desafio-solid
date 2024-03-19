@@ -12,7 +12,7 @@ let sut: RegisterDogUseCase
 describe('Register Pet Use Case', () => {
   beforeEach(async () => {
     dogsRepository = new InMemoryDogsRepository()
-    orgsRepository = new InMemoryOrgsRepository() // Adicione esta linha para inicializar o orgsRepository
+    orgsRepository = new InMemoryOrgsRepository()
     sut = new RegisterDogUseCase(dogsRepository, orgsRepository)
 
     await orgsRepository.create({
