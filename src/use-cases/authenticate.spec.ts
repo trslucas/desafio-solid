@@ -23,6 +23,7 @@ describe('Authenticate Use Case', () => {
       password_hash: await hash('Senha@2134', 6),
       responsable_name: 'Lucas Trindade',
       whatsapp: '21965667088',
+      created_at: new Date(),
     })
 
     const { org } = await sut.execute({
