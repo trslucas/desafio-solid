@@ -1,25 +1,3 @@
-<!-- ## Backend
-
-- [] Precisa usar Docker;
-- [] Um servidor em Node.js utilizando Typescript;
-- [] Prisma ORM (poderia escolher qualquer um);
-- [] Os dados da aplicação precisam estar persistidos em um banco PostgreSQL;
-
-## Frontend
-
-- [] React ou Next utilizando Typescript;
-- [] CSS3 ou uma biblioteca de estilização de sua preferência (estou usando Ant Desing para testar);
-- [] Página para realizar o cadastro na NG informando username e password;
-- [] Página para realizar o login informando username e password;
-
-### Página principal deve apresentar:
-
-- [] Balance atual do usuário;
-- [] Seção voltada à realização de transferências para outros usuários NG a partir do username de quem sofrerá o cash-in;
-- [] Tabela com os detalhes de todas as transações que o usuário participou;
-- [] Mecanismo para filtrar a tabela por tipo de transação cash-in/cash-out;
-- [] Botão para realizar o log-out; -->
-
 ## RFs (Requisitos funcionais) Backend
 
 - [] Deve ser possível listar todos os pets disponíveis para adoção em uma cidade:
@@ -78,7 +56,7 @@
 
 - [] Deve ser possível filtrar pets por suas características;
 - [] Deve ser possível visualizar detalhes de um pet para adoção
-- [] Deve ser possível se cadastrar como uma ORG
+- [x] Deve ser possível se cadastrar como uma ORG
   - input 1:
     - Nome do responsável
   - input 2:
@@ -93,55 +71,20 @@
     - Senha
   - input 7:
     - Confirmação de senha
-- [] Deve ser possível realizar login como uma ORG
+- [x] Deve ser possível realizar login como uma ORG
   - input 1:
     - Email
   - input 2:
     - Senha
 
-<!-- ## RFs (Requisitos funcionais) Frontend
-
-- [] Deve ser possível se cadastrar um User (informe username, password para cadastrar);
-- [] (depois cadastro), automaticamente cria 1 account, na tabela account com R$100 de balance;
-- [] Deve ser possível logar um User (informe username, password para cadastrar);
-- [] (depois de logado) Deve ser possível ver balance do User
-- [] (depois de logado) Deve ser possível ver Tabela com os detalhes de todas as transações que o usuário participou
-- [] (depois de logado) Deve ser possível transferir para outros usuários NG a partir do username de quem sofrerá o cash-in
-- [] (depois de logado) Deve ser possível filtrar a tabela por tipo de transação cash-in/cash-out;
-- [] (depois de logado) Deve ser possível realizar logOut -->
 
 ## RNs (Regras de negócio) Backend
 
 - [] Para listar os pets, obrigatoriamente precisamos informar a cidade;
-- [] Uma ORG precisa ter um endereço e um número de WhatsApp;
+- [x] Uma ORG precisa ter um endereço e um número de WhatsApp;
 - [] Um pet deve estar ligado a uma ORG;
 - [] O usuário que quer adotar, entrará em contato com a ORG via WhatsApp;
 - [] Todos os filtros, além da cidade, são opcionais;
 - [] Para uma ORG acessar a aplicação como admin, ela precisa estar logada;
 
-<!-- ## RNs (Regras de negócio) Frontend
 
-- [] username tem que ser único;
-- [] username composto por, pelo menos, 3 caracteres;
-- [] password composta por pelo menos 8 caracteres, um número e uma letra maiúscula;
-- [] (depois cadastro), automaticamente cria 1 account, na tabela account com R$100 de balance;
-- [] (depois de logado) pode fazer cash-out informando o username do usuário que sofrerá o cash-in;
-- [] (depois de logado) deverá ser capaz de visualizar as transações financeiras (cash-out e cash-in) que participou;
-- [] Caso o usuário não tenha participado de uma determinada transação, ele nunca poderá ter acesso à ela;
-- [] Todo usuário logado deverá ser capaz de filtrar as transações financeiras que participou por:
-  Transações de cash-out;
-  Transações de cash-in;
-- [] Só pode cash-out se tiver balance suficiente para isso;
-- [] Usuário não deverá ter a possibilidade de realizar uma transferência para si mesmo;
-- [] Toda nova transação bem-sucedida deverá ser registrada na tabela Transactions;
-- [] Em casos de falhas transacionais, a tabela Transactions não deverá ser afetada; -->
-
-<!-- ## RNFs (Requisitos não-funcionais) Backend
-
-- [] A senha do usuário precisa estar criptografada ao armazenar no Banco de Dados;
-- [] O usuário deve ser identificado por um JWT depois de se logar (JSON Web Token) (com 24h de validade);
-
-## RNFs (Requisitos não-funcionais) Frontend
-
-- [] A senha do usuário precisa estar criptografada ao armazenar no Banco de Dados;
-- [] O usuário deve ser identificado por um JWT depois de se logar (JSON Web Token) (com 24h de validade); -->
