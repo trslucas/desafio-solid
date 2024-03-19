@@ -29,11 +29,11 @@ model Dog {
   id           String @id @default(uuid())
   name         String
   description  String
-  age          String
-  size         String
-  energy       String
-  independence String
-  environment  String
+  age          Int
+  size         Int
+  energy       Int
+  independence Int
+  environment  Int
   org          Org    @relation(fields: [org_id], references: [id])
   org_id       String
 
