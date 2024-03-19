@@ -1,19 +1,20 @@
 import { hash } from 'bcryptjs'
-import { InMemoryDogsRepository } from '../repository/in-memory/in-memory-dogs-repository'
-import { InMemoryOrgsRepository } from '../repository/in-memory/in-memory-orgs-repository'
-import { RegisterDogUseCase } from './register-pet'
-import { beforeEach, describe, expect, it } from 'vitest'
 
-let dogsRepository: InMemoryDogsRepository
+import { InMemoryOrgsRepository } from '../repository/in-memory/in-memory-orgs-repository'
+import { RegisterPetUseCase } from './register-pet'
+import { beforeEach, describe, expect, it } from 'vitest'
+import { InMemoryPetsRepository } from '../repository/in-memory/in-memory-pets-repository'
+
+let petsRepository: InMemoryPetsRepository
 let orgsRepository: InMemoryOrgsRepository
 
-let sut: RegisterDogUseCase
+let sut: RegisterPetUseCase
 
 describe('Register Pet Use Case', () => {
   beforeEach(async () => {
-    dogsRepository = new InMemoryDogsRepository()
+    petsRepository = new InMemoryPetsRepository()
     orgsRepository = new InMemoryOrgsRepository()
-    sut = new RegisterDogUseCase(dogsRepository, orgsRepository)
+    sut = new RegisterPetUseCase(petsRepository, orgsRepository)
 
     await orgsRepository.create({
       id: '1001',
