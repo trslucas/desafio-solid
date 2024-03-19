@@ -20,12 +20,12 @@ model Org {
   whatsapp         String
 
   created_at DateTime
-  dogs       Dog[]
+  pets       Pet[]
 
   @@map("orgs")
 }
 
-model Dog {
+model Pet {
   id                 String   @id @default(uuid())
   name               String
   city               String
@@ -39,5 +39,5 @@ model Dog {
   org_id             String
   created_at         DateTime
 
-  @@map("dogs")
+  @@map("pets")
 }

@@ -1,8 +1,10 @@
-import { Dog } from '@prisma/client'
-import { DogsRepository } from '../repository/dogs-repository'
-import { OrgsRepository } from '../repository/orgs-repository'
+import { Pet } from '@prisma/client'
 
-interface RegisterDogUseCaseRequest {
+import { OrgsRepository } from '../repository/orgs-repository'
+import { ResourceNotFoundError } from './errors/resource-not-found-error'
+import { PetsRepository } from '../repository/pets-repository'
+
+interface RegisterPetUseCaseRequest {
   name: string
   city: string
   description: string
@@ -14,13 +16,13 @@ interface RegisterDogUseCaseRequest {
   orgId: string
 }
 
-interface RegisterDogUseCaseResponse {
-  dog: Dog
+interface RegisterPetUseCaseResponse {
+  dog: Pet
 }
 
-export class RegisterDogUseCase {
+export class RegisterPetUseCase {
   constructor(
-    private dogsRepository: DogsRepository,
+    private petsRepository: PetsRepository,
     private orgsRepository: OrgsRepository,
   ) {}
 
@@ -34,14 +36,14 @@ export class RegisterDogUseCase {
     independencyLevel,
     environment,
     orgId,
-  }: RegisterDogUseCaseRequest): Promise<RegisterDogUseCaseResponse> {
+  }: RegisterPetUseCaseRequest): Promise<RegisterPetUseCaseResponse> {
     const org = await this.orgsRepository.findById(orgId)
 
     if (!org) {
-      throw new Error('Falha de resource')
+      throw new ResourceNotFoundError()
     }
 
-    const dog = await this.dogsRepository.create({
+    const dog = await this.petsRepository.create({
       name,
       city,
       description,

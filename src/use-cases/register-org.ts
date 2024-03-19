@@ -1,7 +1,7 @@
 import { Org } from '@prisma/client'
 import { OrgsRepository } from '../repository/orgs-repository'
 import { hash } from 'bcryptjs'
-import { OrgAlreadyExistsError } from './errors/org-already-exists'
+import { OrgAlreadyExistsError } from './errors/org-already-exists-error'
 
 interface RegisterOrgUseCaseRequest {
   responsable_name: string
