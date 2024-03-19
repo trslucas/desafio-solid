@@ -41,6 +41,7 @@ export class RegisterOrgUseCase {
       address,
       whatsapp,
       password_hash,
+      created_at: new Date(),
     })
 
     return {
