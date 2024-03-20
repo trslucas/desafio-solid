@@ -1,8 +1,9 @@
 import { Pet } from '@prisma/client'
 import { PetsRepository } from '../repository/pets-repository'
+import console from 'console'
 
 interface ListPetsUseCaseRequest {
-  city: string
+  state: string
 }
 
 interface ListPetsUseCaseResponse {
@@ -13,16 +14,15 @@ export class ListPetsUseCase {
   constructor(private petsRepository: PetsRepository) {}
 
   async execute({
-    city,
+    state,
   }: ListPetsUseCaseRequest): Promise<ListPetsUseCaseResponse> {
-    const pets = await this.petsRepository.searchMany(city)
+    const pets = await this.petsRepository.searchMany(state)
 
     if (!pets) {
       throw new Error('Pets not found')
     }
 
-    return {
-      pets,
-    }
+    console.log(pets)
+    return { pets }
   }
 }
