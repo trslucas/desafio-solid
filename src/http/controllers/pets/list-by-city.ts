@@ -14,7 +14,7 @@ export async function listPetsByCity(
 
   const listPetsByCityUseCase = makeListPetsUseCase()
   try {
-    const { pets } = await listPetsByCityUseCase.execute({ state: city })
+    const { pets } = await listPetsByCityUseCase.execute({ city })
 
     return reply.status(200).send({ pets })
   } catch (err) {
