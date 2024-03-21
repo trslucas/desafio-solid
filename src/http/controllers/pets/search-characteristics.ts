@@ -22,20 +22,16 @@ export async function searchByCharacteristics(
   const { city, characteristics } = searchByCharacteristicsSchema.parse(
     request.query,
   )
-  const { age, energy_level, environment, size } = characteristics ?? {}
 
   const searchByCharacteristicsUseCase = makeListPetsByCharacteristicsUseCase()
 
   try {
     const { pets } = await searchByCharacteristicsUseCase.execute({
       city,
-      age,
-      energy_level,
-      environment,
-      size,
+      ...characteristics,
     })
 
-    return pets
+    return { pets }
   } catch (err) {
     if (err instanceof ResourceNotFoundError) {
       return reply.status(400).send({ message: err.message })
