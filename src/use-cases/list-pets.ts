@@ -3,7 +3,7 @@ import { PetsRepository } from '../repository/pets-repository'
 import console from 'console'
 
 interface ListPetsUseCaseRequest {
-  state: string
+  city: string
 }
 
 interface ListPetsUseCaseResponse {
@@ -14,9 +14,9 @@ export class ListPetsUseCase {
   constructor(private petsRepository: PetsRepository) {}
 
   async execute({
-    state,
+    city,
   }: ListPetsUseCaseRequest): Promise<ListPetsUseCaseResponse> {
-    const pets = await this.petsRepository.searchMany(state)
+    const pets = await this.petsRepository.searchMany(city)
 
     if (!pets) {
       throw new Error('Pets not found')
