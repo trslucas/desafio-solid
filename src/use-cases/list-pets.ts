@@ -1,5 +1,6 @@
 import { Pet } from '@prisma/client'
 import { PetsRepository } from '../repository/pets-repository'
+import console from 'console'
 
 interface ListPetsUseCaseRequest {
   city: string
@@ -21,8 +22,7 @@ export class ListPetsUseCase {
       throw new Error('Pets not found')
     }
 
-    return {
-      pets,
-    }
+    console.log(pets)
+    return { pets }
   }
 }
