@@ -26,15 +26,15 @@
 
 ### Aprendizado 
 
-- Aqui tive oportunidade de melhorar minha construção de um backend dividindo ele por camadas
-- As camadas utilizadas foram as de use-cases, repositorys e controllers
-- A possibilidade de inverter as dependências deixou clara a questão de desacoplar o repository do use-case, onde a partir do momento que fazemos a partir dessa injeção, se precisar-mos mudar algo relacionado a banco de dados, só teremos que mexer nessa camada e não na lógica ou controller.
-- E para isso utilizou-se a estratégia de repository pattern, dando a possibilidade de um repository para os testes e para o use-case
-- Possibilidade de escrever testes e entendendo todo o fluxo, dos unitários para testar o use-case e os e2e para testar as requisições, os dados e os retornos.
-- Nesse projeto também utilizei o sistema de ramificação de branchs, para reforçar conteúdos que já faço, onde toda branch para uma atividade era criada a partir da develop e da develop fazia-se um PR para a main
-- Também tive a oportunidade de colocar o banco de dados no ar desde o início para testar o deploy cada vez que eu fazia um PR da develop para a main
-- Oportunidade de criar uma conteinarização do meu banco de dados, utilizando o docker-composer
-- Nesse caso utilizei o Render para subir o banco de dados da aplicação
+- Aqui tive oportunidade de melhorar minha construção de um backend dividindo ele por camadas (use-cases, controllers e repository);
+- Reforcei conhecimentos em um framework que pouco é falado, mas que é bem tranquilo de usar que é o Fastify;
+- Ter a possibilidade criar um backend com a estratégia de inverter as dependências deixou claro qual o intuito em desacoplar a camada de repository da camada de use-case. Pois à partir do momento que fazemos isso, isolamos completamente as regras de negócio da comunicação com o banco de dados, deixando o código muito mais manutenível;
+- Para isso utilizei a estratégia de repository pattern, a partir de uma interface que implementa os métodos nos repositorys de testes e para quando o controller chama o use-case;
+- Poder escrever testes me fez entender todo o fluxo dos testes unitários para testar os use-cases e dos testes E2E para testar as requisições, os dados e os retornos;
+- Nesse projeto também utilizei o sistema de ramificação de branchs, onde toda branch para uma atividade era criada a partir da develop e da develop fazia-se um PR para a main como se fosse o fluxo de um dia-a-dia de trabalho;
+- Também tive a oportunidade de colocar o banco de dados no ar desde o início para testar o deploy cada vez que eu fazia um PR da develop para a main;
+- Oportunidade de criar uma conteinarização do meu banco de dados, utilizando o docker-composer;
+- Nesse caso utilizei o Render para subir o banco de dados da aplicação;
 
 
 ## Tecnologias utilizadas 
