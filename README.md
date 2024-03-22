@@ -34,7 +34,7 @@
 - Nesse projeto também utilizei o sistema de ramificação de branchs, para reforçar conteúdos que já faço, onde toda branch para uma atividade era criada a partir da develop e da develop fazia-se um PR para a main
 - Também tive a oportunidade de colocar o banco de dados no ar desde o início para testar o deploy cada vez que eu fazia um PR da develop para a main
 - Oportunidade de criar uma conteinarização do meu banco de dados, utilizando o docker-composer
-- Nesse caso utilizei o Render
+- Nesse caso utilizei o Render para subir o banco de dados da aplicação
 
 
 ## Tecnologias utilizadas 
