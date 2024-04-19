@@ -18,6 +18,7 @@ export async function listPetsByCity(
 
     return reply.status(200).send({ pets })
   } catch (err) {
+    console.log(err)
     if (err instanceof ResourceNotFoundError) {
       return reply.status(400).send({ message: err.message })
     }

@@ -22,7 +22,6 @@ export class ListPetsUseCase {
       throw new Error('Pets not found')
     }
 
-    console.log(pets)
     return { pets }
   }
 }

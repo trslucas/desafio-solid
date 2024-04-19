@@ -19,6 +19,7 @@ export async function listPetById(
 
     return reply.status(200).send({ pet })
   } catch (err) {
+    console.log(err)
     if (err instanceof ResourceNotFoundError) {
       return reply.status(409).send({ message: err.message })
     }

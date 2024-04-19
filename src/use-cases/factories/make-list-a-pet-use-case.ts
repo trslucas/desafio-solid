@@ -1,5 +1,5 @@
 import { PrismaPetsRepository } from '../../repository/prisma/prisma-pets-repository'
-import { ListAPetUseCase } from '../list-a-pet'
+import { ListAPetUseCase } from '../list-pet-by-id'
 
 export function makeListAPetUseCase() {
   const prismaPetsRepository = new PrismaPetsRepository()
